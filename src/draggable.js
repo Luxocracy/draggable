@@ -498,7 +498,8 @@
 
       while ((element = element.offsetParent)) {
         // var z = getStyle(element).zoom;
-        var z = getStyle(element).transform.match(/[0-9.]+/)[0]
+        var transform = getStyle(element).transform.match(/[0-9.]+/)
+        var z = transform ? transform[0] : '1'
 
         if (z && z !== 'normal') {
           zoom = z
